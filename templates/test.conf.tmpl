@@ -1,1 +1,20 @@
-helloworld
+{{range $curkey := lsdir "/containers/containers"}}
+  {{base $curkey }}
+
+  {{$config := printf "/containers/containers/%s/*" $curkey }}
+  {{range gets $config}}
+    {{base .Key}}: {{.Value}}
+  {{end}}
+
+  {{ $jmxPath := printf "/containers/containers/%s/labels/com.camptocamp.georchestra_jmx" $curkey }}
+
+  {{ $isJmx := getv $jmxPath "false" }}
+
+  {{ if eq $isJmx "true" }}
+   {{ $curkey }} is JMX
+  {{ end }}
+
+
+{{end}}
+
+
