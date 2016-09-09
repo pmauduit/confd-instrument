@@ -2,7 +2,7 @@
 src = "test.conf.tmpl"
 dest = "processed.conf"
 keys = [
-  "/self",
+  "/containers",
   ]
 
 reload_cmd = "/bin/true"
