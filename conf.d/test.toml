@@ -1,0 +1,8 @@
+[template]
+src = "test.conf.tmpl"
+dest = "processed.conf"
+keys = [
+  "/self",
+  ]
+
+reload_cmd = "/bin/true"
